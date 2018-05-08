@@ -1,0 +1,41 @@
+
+SELECT COUNT(author_fname) FROM books;
+SELECT COUNT(DISTINCT author_fname) FROM books;
+
+SELECT COUNT(title) FROM books WHERE title LIKE '%the%';
+
+SELECT author_lname, COUNT(*) FROM books GROUP BY author_lname;
+
+SELECT author_lname, COUNT(*) FROM books GROUP BY author_lname, author_fname;
+
+SELECT CONCAT('In ', released_year, ' ', COUNT(*), ' book(s) was released') AS year FROM books GROUP BY released_year;
+
+SELECT MIN(released_year) FROM books;
+
+SELECT title FROM books WHERE pages=(select MIN(pages) from books);
+SELECT * FROM books ORDER BY pages ASC LIMIT 1;
+
+SELECT author_fname, 
+       author_lname,
+       title,
+       Min(released_year) 
+FROM   books 
+GROUP  BY author_lname, 
+          author_fname;
+          
+SELECT
+  CONCAT(author_fname, ' ', author_lname) AS author,
+  MAX(pages) AS 'longest book'
+FROM books
+GROUP BY author_lname,
+         author_fname;
+
+SELECT author_fname,
+       author_lname,
+       Sum(pages)
+FROM books
+GROUP BY
+    author_lname,
+    author_fname;         
+    
+SELECT author_fname, author_lname, AVG(pages) FROM books GROUP BY author_lname, author_fname;
