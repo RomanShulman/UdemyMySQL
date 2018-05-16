@@ -1,0 +1,25 @@
+Useage of CHAR - since length of CHAR is limited to 4 charachters, it's better to write short and predesigned abbraviations in it, for example - F/M, Mr./Ms., State short names -IL, NY, etc...
+
+CREATE TABLE inventory2(
+    item_name VARCHAR(50),
+    price DECIMAL,
+    quantity INT
+);
+
+SELECT CURTIME();
+
+SELECT CURDATE();
+
+SELECT DATE_FORMAT(CURDATE(), '%w');
+
+SELECT DATE_FORMAT(CURDATE(), '%W');
+
+SELECT DATE_FORMAT(CURDATE(), '%m/%d/%Y');
+
+SELECT DATE_FORMAT(NOW(), '%M %D %Y at %H:%i');
+
+CREATE TABLE tweets (
+    content VARCHAR(100),
+    username VARCHAR(30),
+    created_at TIMESTAMP DEFAULT NOW() ON UPDATE CURRENT_TIMESTAMP
+);
