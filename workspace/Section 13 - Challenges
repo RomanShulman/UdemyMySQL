@@ -1,0 +1,23 @@
+-- TV Joins Challenge 1 --
+    
+SELECT title, rating FROM series
+    JOIN reviews
+    ON series.id = reviews.series_id;
+
+
+-- TV Joins Challenge 2 AVG rating--
+    
+SELECT 
+    title, 
+    AVG(rating) AS avg_rating
+FROM series
+JOIN reviews
+    ON series.id = reviews.series_id
+GROUP BY series.id
+ORDER BY avg_rating ASC;
+
+-- TV Joins Challenge 3 reviewer's rating--
+
+SELECT first_name, last_name, rating FROM reviewers
+    JOIN reviews
+    ON reviewers.id = reviews.reviewer_id;
