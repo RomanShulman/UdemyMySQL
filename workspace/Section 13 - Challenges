@@ -18,6 +18,22 @@ ORDER BY avg_rating ASC;
 
 -- TV Joins Challenge 3 reviewer's rating--
 
-SELECT first_name, last_name, rating FROM reviewers
-    JOIN reviews
+SELECT 
+    first_name,
+    last_name,
+    rating
+FROM reviewers
+JOIN reviews
     ON reviewers.id = reviews.reviewer_id;
+    
+-- TV Joins Challenge 4 unreviewed series--
+
+SELECT 
+    title AS unreviewed_series
+FROM series
+LEFT JOIN reviews
+    ON series.id = reviews.series_id
+WHERE rating IS NULL;
+
+-- TV Joins Challenge 5 genre's ratings--
+
